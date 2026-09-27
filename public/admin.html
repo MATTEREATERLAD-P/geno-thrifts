@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - Geno Thrifts & Finds</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .admin-section { max-width: 700px; margin: 30px auto; background: var(--white); padding: 20px; border-radius: 10px; }
+  .admin-section h2 { color: var(--pink-dark); margin-bottom: 15px; }
+  .admin-section label { display: block; margin-top: 12px; font-weight: bold; }
+  .admin-section input { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; }
+  .admin-section button { margin-top: 15px; background: var(--pink); color: white; border: none; padding: 10px 18px; border-radius: 6px; cursor: pointer; }
+  .admin-list { max-width: 700px; margin: 20px auto; }
+  .admin-item { display: flex; align-items: center; gap: 15px; background: var(--white); padding: 10px; border-radius: 8px; margin-bottom: 10px; }
+  .admin-item img { width: 70px; height: 90px; object-fit: cover; border-radius: 5px; }
+  .admin-item .details { flex: 1; }
+  .admin-item .details span.sold-tag { color: red; font-weight: bold; }
+  .admin-item button { border: none; padding: 6px 10px; border-radius: 5px; cursor: pointer; margin-left: 5px; }
+  .btn-sold { background: var(--gold); color: white; }
+  .btn-delete { background: #c0392b; color: white; }
+  .btn-unsold { background: #555; color: white; }
+</style>
+</head>
+<body>
+<header>
+<h1>Admin Panel</h1>
+<p>Geno Thrifts & Finds</p>
+</header>
+
+<div class="admin-section">
+  <h2>Add New Dress</h2>
+  <form id="add-form">
+    <label>Dress Name</label>
+    <input type="text" id="name" required>
+    <label>Price (KSh)</label>
+    <input type="number" id="price" required>
+    <label>Image</label>
+    <input type="file" id="image" accept="image/*" required>
+    <button type="submit">Add Dress</button>
+  </form>
+</div>
+
+<div class="admin-list" id="admin-list">
+  <p>Loading...</p>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
