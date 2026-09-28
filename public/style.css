@@ -133,59 +133,82 @@ footer {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: #000;
   z-index: 1000;
-  align-items: center;
-  justify-content: center;
-  padding: 15px;
 }
 
 .lightbox.open {
-  display: flex;
+  display: block;
 }
 
 .lightbox-content {
-  background: var(--white);
-  border-radius: 10px;
-  padding: 15px;
-  max-width: 500px;
+  position: relative;
   width: 100%;
-  max-height: 95vh;
-  overflow-y: auto;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto auto auto;
   text-align: center;
+  overflow: hidden;
 }
 
 .lightbox-content img {
+  grid-column: 1;
+  grid-row: 1 / 5;
   width: 100%;
-  max-height: 65vh;
+  height: 100%;
   object-fit: contain;
-  border-radius: 8px;
-  background: var(--pink-light);
+  z-index: 1;
+}
+
+.lightbox-content::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 230px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+  z-index: 2;
+  pointer-events: none;
+}
+
+.lightbox-content h3,
+.lightbox-content p,
+.lightbox-content .whatsapp-btn {
+  grid-column: 1;
+  z-index: 3;
 }
 
 .lightbox-content h3 {
-  color: var(--pink-dark);
-  margin-top: 12px;
+  grid-row: 2;
+  color: #fff;
+  font-size: 1.3rem;
+  padding: 0 15px;
 }
 
 .lightbox-content p {
-  color: var(--gold);
+  grid-row: 3;
+  color: #ffd76a;
   font-weight: bold;
-  font-size: 1.2rem;
-  margin: 5px 0 12px;
+  font-size: 1.3rem;
+  margin: 4px 0 12px;
 }
 
 .lightbox-content .whatsapp-btn {
-  display: block;
-  margin-top: 0;
+  grid-row: 4;
+  width: calc(100% - 30px);
+  max-width: 420px;
+  margin: 0 auto calc(20px + env(safe-area-inset-bottom));
 }
 
 .lightbox-close {
   position: absolute;
   top: 12px;
-  right: 22px;
-  color: var(--white);
-  font-size: 2.5rem;
+  right: 20px;
+  color: #fff;
+  font-size: 2.8rem;
   cursor: pointer;
   line-height: 1;
+  z-index: 10;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
 }
