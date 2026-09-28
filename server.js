@@ -4,6 +4,7 @@ const multer = require('multer');
 const mongoose = require('mongoose');
 const cloudinary = require('cloudinary').v2;
 const streamifier = require('streamifier');
+const basicAuth = require('express-basic-auth');
 const path = require('path');
 
 const app = express();
@@ -30,6 +31,13 @@ const Dress = mongoose.model('Dress', dressSchema);
 const upload = multer({ storage: multer.memoryStorage() });
 
 app.use(express.json());
+
+app.use(['/admin.html', '/admin.js', '/api/admin'], basicAuth({
+  users: { [process.env.ADMIN_USER]: process.env.ADMIN_PASS },
+  challenge: true,
+  realm: 'Geno Thrifts Admin'
+}));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 function uploadToCloudinary(buffer) {
