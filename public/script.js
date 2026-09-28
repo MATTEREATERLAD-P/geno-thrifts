@@ -45,7 +45,6 @@ function openLightbox(d) {
   document.getElementById('lightbox-img').alt = d.name;
   document.getElementById('lightbox-name').textContent = d.name;
   document.getElementById('lightbox-price').textContent = 'KSh ' + d.price.toLocaleString();
-  document.getElementById('lightbox-btn').href = whatsappLink(d);
   lightbox.classList.add('open');
 }
 

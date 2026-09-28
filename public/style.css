@@ -174,7 +174,6 @@ footer {
 
 .lightbox-content h3,
 .lightbox-content p,
-.lightbox-content .whatsapp-btn {
   grid-column: 1;
   z-index: 3;
 }
@@ -194,12 +193,6 @@ footer {
   margin: 4px 0 12px;
 }
 
-.lightbox-content .whatsapp-btn {
-  grid-row: 4;
-  width: calc(100% - 30px);
-  max-width: 420px;
-  margin: 0 auto calc(20px + env(safe-area-inset-bottom));
-}
 
 .lightbox-close {
   position: absolute;
