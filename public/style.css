@@ -76,6 +76,7 @@ main {
   width: 100%;
   height: 260px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .dress-info {
@@ -125,9 +126,7 @@ footer {
   text-align: center;
   color: var(--pink-dark);
 }
-.dress-card img {
-  cursor: pointer;
-}
+
 .lightbox {
   display: none;
   position: fixed;
